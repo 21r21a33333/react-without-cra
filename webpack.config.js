@@ -1,4 +1,3 @@
-//web pack configuration
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -21,6 +20,13 @@ module.exports = {
                 use: {
                     loader: 'babel-loader'
                 }
+            },
+            {
+                test: /\.css$/, // Add this rule for handling CSS files
+                use: [
+                    'style-loader', // Injects styles into DOM
+                    'css-loader'    // Translates CSS into CommonJS
+                ]
             }
         ]
     },
@@ -31,4 +37,4 @@ module.exports = {
             template: './src/index.html'
         })
     ]
-}
+};
